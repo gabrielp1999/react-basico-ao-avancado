@@ -1,13 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+import Comentario from './components/Comentario';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Olá mundo, meu primeiro projeto em React</p>
-      </header>
+        <h1>Olá mundo, meu primeiro projeto em React</h1>
+        <Comentario/>
+        <Comentario/>
+        <Comentario/>
     </div>
   );
 }
