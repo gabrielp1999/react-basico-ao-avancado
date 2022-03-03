@@ -11,7 +11,7 @@ class App extends Component{
       {
         nome: 'Gabriel',
         email: 'bielzinzn1992@gmai.com',
-        data: new Date(2020,3,3),
+        data: new Date(),
         mensagem: "Olá tudo bem?"
       },
     ],
@@ -58,7 +58,7 @@ class App extends Component{
             {comentario.mensagem}
           </Comentario>
       ))}
-      
+
         <form method="post" onSubmit={this.adicionandoComentario}>
           <h3>Adicionar comentario</h3>
 
