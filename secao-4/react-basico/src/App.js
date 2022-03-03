@@ -1,25 +1,46 @@
-import React from 'react';
+import { render } from '@testing-library/react';
+import React, { Component } from 'react';
 import './App.css';
 
 import Comentario from './components/Comentario';
 
-function App() {
-  return (
-    <div className="App">
-        <h1>Olá mundo, meu primeiro projeto em React</h1>
-        <Comentario nome="Gabriel" email="bielzin99@gmail.com" data={new Date(2020,3,3)}>
-          Olá tudo bem?
-        </Comentario>
+class App extends Component{
 
-        <Comentario nome="Luiza" email="luiza1222@gmail.com" data={new Date(2020,3,1)}>
-          tudo bem sim? e vc léo?
-        </Comentario>
+  state = {
+    comentarios: [
+      {
+        nome: 'Gabriel',
+        email: 'bielzinzn1992@gmai.com',
+        data: new Date(2020,3,3),
+        mensagem: "Olá tudo bem?"
+      },
+      {
+        nome: 'Luiza',
+        email: 'Luiza@gmai.com',
+        data: new Date(2020,4,2),
+        mensagem: "tudo bem sim? e vc biel?"
+      },
+    ]
+  }
 
-        <Comentario nome="Leo" email="leo77@gmail.com" data={new Date(2020,2,23)}>
-          tou ok!!
-        </Comentario>
-    </div>
-  );
+  render(){
+    return (
+      <div className="App">
+          <h1>Olá mundo, meu primeiro projeto em React</h1>
+
+      {this.state.comentarios.map((comentario, indice) => (
+          <Comentario
+          key={indice}
+           nome={comentario.nome}
+            email={comentario.email}
+            data={comentario.data}>
+            {comentario.mensagem}
+          </Comentario>
+      ))}
+      </div>
+      );
+    }    
+
 }
 
 export default App;
