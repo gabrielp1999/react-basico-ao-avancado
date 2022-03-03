@@ -24,13 +24,6 @@ class App extends Component{
 
   adicionandoComentario = e => {
     e.preventDefault();
-
-    // const novoComentario = {
-    //   nome: 'kaun',
-    //   email: 'kaun@gmai.com',
-    //   data: new Date(),
-    //   mensagem: "iae turma!!!"
-    // }
     const novoComentario = {...this.state.novoComentario, data: new Date() }
 
     this.setState({
@@ -39,12 +32,16 @@ class App extends Component{
     });
   }
 
+  removerComentario = comentario =>{
+    let lista = this.state.comentarios;
+    lista = lista.filter(c => c !== comentario)
+    this.setState({ comentarios:lista })
+  }
+
   digitacao = e =>{
     const { name, value } = e.target;
     this.setState({ novoComentario: {...this.state.novoComentario, [name]: value } });
   }
-
-
 
   render(){
     return (
@@ -56,10 +53,12 @@ class App extends Component{
           key={indice}
            nome={comentario.nome}
             email={comentario.email}
-            data={comentario.data}>
+            data={comentario.data}
+            onRemove={this.removerComentario.bind(this, comentario)}>
             {comentario.mensagem}
           </Comentario>
       ))}
+      
         <form method="post" onSubmit={this.adicionandoComentario}>
           <h3>Adicionar comentario</h3>
 
