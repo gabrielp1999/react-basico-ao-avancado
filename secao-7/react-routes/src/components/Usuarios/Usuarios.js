@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react'
+
 import Usuario from '../Usuario/Usuario'
 
 function Usuarios() {
 
-    const [ usuarios, setUsuarios ] = useState([]);
+  const [usuarios, setUsuarios] = useState([])
 
-    useEffect(() => {
-      fetch('https://reqres.in/api/users')
-      .then(resposta => resposta.json())
-      .then(dados => {
-        const usuarios = dados.data.map(usuario => ({
-          id: usuario.id,
-          nome: usuario.first_name,
-          sobrenome: usuario.last_name,
-          email: usuario.email
-        }))
+  useEffect(() => {
+    fetch('https://reqres.in/api/users')
+    .then(resposta => resposta.json())
+    .then(dados => {
+      const usuarios = dados.data.map(usuario => ({
+        id: usuario.id,
+        nome: usuario.first_name,
+        sobrenome: usuario.last_name,
+        email: usuario.email
+      }))
 
-        setUsuarios(usuarios)
-      })
-    }, [])
+      setUsuarios(usuarios)
+    })
+  }, [])
 
   const removerUsuario = usuario => {
     if (window.confirm(`Tem certeza que deseja remover "${usuario.nome} ${usuario.sobrenome}"?`)) {
@@ -32,17 +33,17 @@ function Usuarios() {
         })
     }
   }
-    return (
-      <>
-
-        {usuarios.map(usuario => (
-          <Usuario key={usuario.id}
-            usuario={usuario}
-            removerUsuario={ () => removerUsuario(usuario)}
-          />
-        ))}
-      </>
-    )
+  
+  return (
+    <>
+      {usuarios.map(usuario => (
+        <Usuario key={usuario.id}
+          usuario={usuario}
+          removerUsuario={() => removerUsuario(usuario)}
+        />
+      ))}
+    </>
+  )
 }
 
 export default Usuarios

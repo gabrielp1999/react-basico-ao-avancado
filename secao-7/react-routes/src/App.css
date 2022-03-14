@@ -33,17 +33,18 @@
 
 .App nav {
   padding: 0;
-  background-color: #ffebf3;
+  background-color: #FFEBF3;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .14);
 }
 
 .App nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+
   display: flex;
   flex-direction: row;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .App nav ul li {
@@ -53,16 +54,15 @@
 .App nav ul li a {
   display: block;
   padding: 1rem;
-  color: #Da3c78;
+  color: #DA3C78;
   text-decoration: none;
-  font-weight: bold;
 }
 
-.App a:hover{
-  background-color: #ffbcd8;
+.App nav ul li a:hover {
+  background-color: #FFBCD8;
 }
 
 .App nav ul li a.active {
-  background-color: #ff6ca8;
+  background-color: #FF6CA8;
   color: #fff;
 }
