@@ -1,27 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import AdicionaFruta from './AdicionaFruta';
-import Fruta from './Fruta'
+import Fruta from './Fruta';
 
 const ListaFrutas = () => {
+  const frutas = useSelector(state => state.frutaReducers.frutas);
 
-  const frutas = [
-    { id:1, nome: 'Laranja', quantidade:2 },
-    { id:2, nome: 'Abacate', quantidade:6 }
-
-  ]
-
-  return(
+  return (
     <>
-    <h1>Lista de Frutas</h1>
+      <h1>Lista de Frutas</h1>
 
-    <AdicionaFruta/>
+      <AdicionaFruta />
 
-    {frutas.map(fruta => (
-      <Fruta key={fruta.id} fruta={fruta}/>
-    ))}
+      {frutas.map(fruta => (
+        <Fruta key={fruta.id} fruta={fruta} />
+      ))}
     </>
-  )
-
-}
+  );
+};
 
 export default ListaFrutas;
