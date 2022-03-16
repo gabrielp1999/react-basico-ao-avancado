@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 const AdicionaCliente = () => {
 
   const validarEmail =(value) => !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
-  
+
   return (
     <>
       <h1>Cadastro de Clientes</h1>
@@ -40,7 +40,7 @@ const AdicionaCliente = () => {
           <label htmlFor="nome">Nome</label>
           <input id="nome"
            name="nome"
-            type="text" 
+            type="text"
             onChange={props.handleChange}
             value={props.values.nome}
             onBlur={props.handleBlur}
@@ -56,7 +56,7 @@ const AdicionaCliente = () => {
            name="email"
           type="email"
            onChange={props.handleChange}
-           value={props.values.email} 
+           value={props.values.email}
            onBlur={props.handleBlur}
            className={props.errors.email && props.touched.email ? 'is-invalid' : ''}
            />
@@ -65,10 +65,10 @@ const AdicionaCliente = () => {
 
         <div className="form-group">
           <label htmlFor="date">Data de Nascimento</label>
-          <input 
+          <input
           id="nascimento"
           name="nascimento"
-          type="date" 
+          type="date"
           onChange={props.handleChange}
           value={props.values.nascimento}
           onBlur={props.handleBlur}
@@ -76,7 +76,7 @@ const AdicionaCliente = () => {
           />
           {props.errors.nascimento && props.touched.nascimento ? <div className='error-validate'>{props.errors.nascimento}</div> : null}
         </div>
-        
+
         <button type="submit">Adicionar</button>
       </form>
       )}
@@ -86,3 +86,6 @@ const AdicionaCliente = () => {
 };
 
 export default AdicionaCliente;
+
+
+// hdgcjhd
